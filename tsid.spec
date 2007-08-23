@@ -1,6 +1,6 @@
 %define name tsid
 %define version 0.9
-%define release %mkrel 3
+%define release %mkrel 4
 
 Summary: TSID: Time SID Manager
 Name: %{name}
