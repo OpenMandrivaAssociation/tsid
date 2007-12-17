@@ -11,7 +11,6 @@ URL: http://tsid.sourceforge.net
 Group: Sound
 Source: http://prdownloads.sourceforge.net/tsid/%name-%version.tar.bz2
 Patch: tsid-0.9-gcc3.4.patch
-BuildRoot: %{_tmppath}/tsid-build
 BuildRequires: sidplay-devel
 
 %description
