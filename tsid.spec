@@ -1,6 +1,6 @@
 %define name tsid
 %define version 0.9
-%define release %mkrel 4
+%define release %mkrel 5
 
 Summary: TSID: Time SID Manager
 Name: %{name}
@@ -10,7 +10,7 @@ License: GPL
 URL: http://tsid.sourceforge.net
 Group: Sound
 Source: http://prdownloads.sourceforge.net/tsid/%name-%version.tar.bz2
-Patch: tsid-0.9-gcc3.4.patch
+Patch: tsid-0.9-gcc4.patch
 BuildRequires: sidplay-devel
 
 %description
@@ -33,7 +33,7 @@ This is a developer package containing the static library and header files.
 
 %prep
 %setup -q
-%patch -p1
+%patch -p1 -b .gcc4
 
 %build
 %configure2_5x
