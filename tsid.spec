@@ -9,6 +9,7 @@ Release: %{release}
 License: GPL
 URL: http://tsid.sourceforge.net
 Group: Sound
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Source: http://prdownloads.sourceforge.net/tsid/%name-%version.tar.bz2
 Patch: tsid-0.9-gcc4.patch
 BuildRequires: sidplay-devel
