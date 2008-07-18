@@ -1,12 +1,12 @@
 %define name tsid
 %define version 0.9
-%define release %mkrel 5
+%define release %mkrel 6
 
 Summary: TSID: Time SID Manager
 Name: %{name}
 Version: %{version}
 Release: %{release}
-License: GPL
+License: GPLv2+
 URL: http://tsid.sourceforge.net
 Group: Sound
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
