@@ -1,6 +1,6 @@
 %define name tsid
 %define version 0.9
-%define release %mkrel 6
+%define release %mkrel 7
 
 Summary: TSID: Time SID Manager
 Name: %{name}
@@ -57,7 +57,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -n %{name}-devel
 %defattr(-,root,root)
 %doc history/* doc/inside.html COPYING doc/thvs.txt
-%{_libdir}/*
+%{_libdir}/*.a
 %{_includedir}/%{name}/*
 %dir %{_includedir}/%{name}
 
