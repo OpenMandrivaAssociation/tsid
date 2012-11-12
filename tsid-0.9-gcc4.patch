@@ -1,0 +1,257 @@
+diff -p -up tsid-0.9/src/pgr/examiner.cpp.gcc4 tsid-0.9/src/pgr/examiner.cpp
+--- tsid-0.9/src/pgr/examiner.cpp.gcc4	2002-01-20 17:09:38.000000000 +0100
++++ tsid-0.9/src/pgr/examiner.cpp	2008-07-18 13:19:58.000000000 +0200
+@@ -37,11 +37,13 @@
+ 
+ #include <stdio.h>
+ #include <stdlib.h>
+-#include <iostream.h>
+-#include <fstream.h>
+-#include <iomanip.h>
++#include <iostream>
++#include <fstream>
++#include <iomanip>
+ #include <string.h>
+ 
++using namespace std;
++
+ // paramenter field
+ const int P_NOTHING   = 0x000;  // nothing passed
+ const int P_UNSORTED  = 0x001;  // unsorted list
+diff -p -up tsid-0.9/src/pgr/hvsctest.cpp.gcc4 tsid-0.9/src/pgr/hvsctest.cpp
+--- tsid-0.9/src/pgr/hvsctest.cpp.gcc4	2001-12-23 15:35:36.000000000 +0100
++++ tsid-0.9/src/pgr/hvsctest.cpp	2008-07-18 13:21:03.000000000 +0200
+@@ -30,11 +30,13 @@
+ #include "osdepend.h"
+ 
+ #include <stdlib.h>
+-#include <iostream.h>
+-#include <fstream.h>
++#include <iostream>
++#include <fstream>
+ #include <string.h>
+ #include <stdio.h>
+ 
++using namespace std;
++
+ int main(int argc, char** argv) {
+   cout << "HVSCTEST 1.00\n\n";
+   cout << "This program test if the HVSC_DIR variable enviroment points to a valid HVSC\n\n";
+diff -p -up tsid-0.9/src/pgr/sldb/File.cpp.gcc4 tsid-0.9/src/pgr/sldb/File.cpp
+--- tsid-0.9/src/pgr/sldb/File.cpp.gcc4	2002-03-03 19:00:03.000000000 +0100
++++ tsid-0.9/src/pgr/sldb/File.cpp	2008-07-18 13:19:03.000000000 +0200
+@@ -22,6 +22,7 @@
+ #include <algorithm>
+ #include <functional>
+ #include <vector>
++#include <cstring>
+ #include <cctype>
+ #include <fstream>
+ #ifdef XSID_HAVE_NOTHROW
+@@ -128,7 +129,7 @@ bool SongLengthFile::init(const char* fi
+ #ifdef XSID_HAVE_NOTHROW
+     pDB = new(std::nothrow) char[fileLen+1L];
+ #else
+-    pDB = new char[fileLen+1L];
++    pDB = new char[(long) fileLen+1L];
+ #endif
+     if ( pDB == 0 )
+     {
+diff -p -up tsid-0.9/src/pgr/sldb/MD5.cpp.gcc4 tsid-0.9/src/pgr/sldb/MD5.cpp
+--- tsid-0.9/src/pgr/sldb/MD5.cpp.gcc4	2001-11-30 04:16:51.000000000 +0100
++++ tsid-0.9/src/pgr/sldb/MD5.cpp	2008-07-18 12:46:56.000000000 +0200
+@@ -44,7 +44,7 @@
+ 
+ #ifdef MD5_TEST
+ 
+-#include <iostream.h>
++#include <iostream>
+ #include <iomanip.h>
+ 
+ main()
+diff -p -up tsid-0.9/src/pgr/tsidex.cpp.gcc4 tsid-0.9/src/pgr/tsidex.cpp
+--- tsid-0.9/src/pgr/tsidex.cpp.gcc4	2008-07-18 13:20:18.000000000 +0200
++++ tsid-0.9/src/pgr/tsidex.cpp	2008-07-18 13:20:43.000000000 +0200
+@@ -30,6 +30,7 @@
+ #ifndef _TSIDEX
+ #define _TSIDEX
+ 
++#include <cstring>
+ #include "tsidex.h"
+ #include "sldb/MD5.h"
+ #include "sldb/SidTuneMod.h"
+diff -p -up tsid-0.9/src/pgr/tsidex.h.gcc4 tsid-0.9/src/pgr/tsidex.h
+--- tsid-0.9/src/pgr/tsidex.h.gcc4	2002-01-20 16:44:00.000000000 +0100
++++ tsid-0.9/src/pgr/tsidex.h	2008-07-18 12:46:56.000000000 +0200
+@@ -82,7 +82,7 @@ class TSIDEx : public TSIDExaminer {
+   /**
+    * Activate the length calculation
+    */
+-  void TSIDEx::activateLength();
++  void activateLength();
+ 
+   private:
+ 
+diff -p -up tsid-0.9/src/pgr/tupdate.cpp.gcc4 tsid-0.9/src/pgr/tupdate.cpp
+--- tsid-0.9/src/pgr/tupdate.cpp.gcc4	2004-05-15 17:52:14.000000000 +0200
++++ tsid-0.9/src/pgr/tupdate.cpp	2008-07-18 13:21:24.000000000 +0200
+@@ -39,8 +39,8 @@
+ 
+ #include <errno.h>
+ #include <stdlib.h>
+-#include <iostream.h>
+-#include <fstream.h>
++#include <iostream>
++#include <fstream>
+ #include <string.h>
+ #include <stdio.h>
+ #include <sys/stat.h>
+@@ -55,6 +55,8 @@
+   #include <dir.h>
+ #endif
+ 
++using namespace std;
++
+ #define strequ(s1, s2) (strcmp((s1),(s2)) == 0)
+ 
+ // show debug string if DEBUG is defined
+diff -p -up tsid-0.9/src/tsid/sidt.cpp.gcc4 tsid-0.9/src/tsid/sidt.cpp
+--- tsid-0.9/src/tsid/sidt.cpp.gcc4	2004-05-29 14:20:21.000000000 +0200
++++ tsid-0.9/src/tsid/sidt.cpp	2008-07-18 13:16:28.000000000 +0200
+@@ -34,8 +34,8 @@
+ #include "sidt.h"
+ 
+ #include <string.h>
+-#include <iostream.h>
+-#include <fstream.h>
++#include <iostream>
++#include <fstream>
+ 
+ const char *SIDT::ERR_NO_SIDT_ERROR = "SIDT: No error";
+ const char *SIDT::ERR_FILE_CREATE   = "SIDT: Error creating file";
+@@ -261,7 +261,7 @@ bool SIDT::write() {
+   lastError=NO_SIDT_ERROR;
+ 
+   //create the file, erasing the previous if present
+-  ofstream file(absFilePath, ios::out);
++  std::ofstream file(absFilePath, std::ios::out);
+ 
+   if (!file) {
+     PDEBUG("Error creating file: " << absFilePath << endl);
+@@ -274,7 +274,7 @@ bool SIDT::write() {
+     if (sidt[i].song!=0) {
+       // write output text line in the file
+       file << "#" << sidt[i].song << " " << sidt[i].second
+-           << " " << sidt[i].number << endl;
++           << " " << sidt[i].number << std::endl;
+     }
+   }
+   PDEBUG("Write operation ended\n");
+@@ -298,7 +298,7 @@ bool SIDT::read() {
+   lastError=NO_SIDT_ERROR;
+ 
+   // open the file
+-  ifstream file(absFilePath, ios::in);
++  std::ifstream file(absFilePath, std::ios::in);
+ 
+   if (!file) {
+     // nothing to do
+diff -p -up tsid-0.9/src/tsid/sidt.h.gcc4 tsid-0.9/src/tsid/sidt.h
+--- tsid-0.9/src/tsid/sidt.h.gcc4	2002-03-23 17:23:07.000000000 +0100
++++ tsid-0.9/src/tsid/sidt.h	2008-07-18 12:46:56.000000000 +0200
+@@ -31,7 +31,7 @@
+ #define _SIDT_H
+ 
+ #include "version.h"
+-#include <iostream.h>
++#include <iostream>
+ 
+ #define MAX_SONGS 128
+ 
+diff -p -up tsid-0.9/src/tsid/tsid.cpp.gcc4 tsid-0.9/src/tsid/tsid.cpp
+--- tsid-0.9/src/tsid/tsid.cpp.gcc4	2004-05-29 14:19:58.000000000 +0200
++++ tsid-0.9/src/tsid/tsid.cpp	2008-07-18 13:15:34.000000000 +0200
+@@ -36,8 +36,8 @@
+ #include <stdio.h>
+ #include <string.h>
+ #include <stdlib.h>
+-#include <iostream.h>
+-#include <fstream.h>
++#include <iostream>
++#include <fstream>
+ #include <sys/stat.h>
+ 
+ #ifdef HAVE_UNIX
+@@ -163,7 +163,7 @@ bool TSID::testHVSC(const char *dir) {
+   sprintf(name, "%s%c%s%c%s", dir, PATH_SEP, "DOCUMENTS", PATH_SEP, "hv_sids.txt");
+ 
+   // open the file
+-  ifstream file(name, ios::in);
++  std::ifstream file(name, std::ios::in);
+ 
+   if (!file) {
+     lastError=NO_HVSC;
+diff -p -up tsid-0.9/src/tsid/tsidexaminer.cpp.gcc4 tsid-0.9/src/tsid/tsidexaminer.cpp
+--- tsid-0.9/src/tsid/tsidexaminer.cpp.gcc4	2008-07-18 13:17:26.000000000 +0200
++++ tsid-0.9/src/tsid/tsidexaminer.cpp	2008-07-18 13:18:18.000000000 +0200
+@@ -549,7 +549,7 @@ char *TSIDExaminer::addPathToList2(char 
+  * @param out the output stream pointer
+  * @param withScore true if the score must be displayed
+  */
+-void TSIDExaminer::showList(ostream *out, bool withScore) {
++void TSIDExaminer::showList(std::ostream *out, bool withScore) {
+   tuneItem *actual;              // pointer to the list
+   char *tmpStr="Various";
+   int step=strlen(homeTDir);     // this is not to show
+@@ -583,13 +583,13 @@ void TSIDExaminer::showList(ostream *out
+       *out << "#" << actual->song;
+     }
+ 
+-    *out << endl;
++    *out << std::endl;
+ 
+     actual=actual->next;                     // go to next element
+   }
+   *out << "*** STATISTICS ***\n";
+-  *out << "LISTEN SECONDS: " << totalSec << endl;
+-  *out << "NUMBER of LISTEN: " << totalNum << endl;
++  *out << "LISTEN SECONDS: " << totalSec << std::endl;
++  *out << "NUMBER of LISTEN: " << totalNum << std::endl;
+ }
+ 
+ /**
+diff -p -up tsid-0.9/src/tsid/tsidexaminer.h.gcc4 tsid-0.9/src/tsid/tsidexaminer.h
+--- tsid-0.9/src/tsid/tsidexaminer.h.gcc4	2002-07-13 22:20:17.000000000 +0200
++++ tsid-0.9/src/tsid/tsidexaminer.h	2008-07-18 13:17:12.000000000 +0200
+@@ -32,8 +32,8 @@
+ 
+ #include "sidt.h"
+ 
+-#include <iostream.h>
+-#include <fstream.h>
++#include <iostream>
++#include <fstream>
+ 
+ #define MAX_SONGS 128
+ 
+@@ -187,7 +187,7 @@ class TSIDExaminer {
+      * @param out the output stream pointer
+      * @param withScore true if score will be displayed
+      */
+-    void showList(ostream *out, bool withScore=false);
++    void showList(std::ostream *out, bool withScore=false);
+ 
+     /**
+      * Init the engin for getting the next song information from list
+diff -p -up tsid-0.9/src/tsid/tsid.h.gcc4 tsid-0.9/src/tsid/tsid.h
+--- tsid-0.9/src/tsid/tsid.h.gcc4	2003-02-09 19:45:50.000000000 +0100
++++ tsid-0.9/src/tsid/tsid.h	2008-07-18 12:46:56.000000000 +0200
+@@ -32,7 +32,7 @@
+ 
+ #include "sidt.h"
+ 
+-#include <iostream.h>
++#include <iostream>
+ 
+ // minime listen time (in second) for a tune to become counted
+ #define MIN_LISTEN_TIME 10
