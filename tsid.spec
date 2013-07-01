@@ -2,7 +2,7 @@
 %define version 0.9
 %define release %mkrel 9
 
-Summary: TSID: Time SID Manager
+Summary: : Time SID Manager
 Name: %{name}
 Version: %{version}
 Release: %{release}
