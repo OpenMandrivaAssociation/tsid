@@ -1,5 +1,5 @@
 Summary: Time SID Manager
-Name:    rsid
+Name:    tsid
 Version: 0.9
 Release: 10
 License: GPLv2+
