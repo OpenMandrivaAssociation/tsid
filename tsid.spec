@@ -1,15 +1,10 @@
-%define name tsid
-%define version 0.9
-%define release %mkrel 9
-
-Summary: : Time SID Manager
-Name: %{name}
-Version: %{version}
-Release: %{release}
+Summary: Time SID Manager
+Name:    rsid
+Version: 0.9
+Release: 10
 License: GPLv2+
 URL: http://tsid.sourceforge.net
 Group: Sound
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Source: http://prdownloads.sourceforge.net/tsid/%name-%version.tar.bz2
 Patch: tsid-0.9-gcc4.patch
 BuildRequires: sidplay-devel
@@ -41,21 +36,17 @@ This is a developer package containing the static library and header files.
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
 %makeinstall
 
 %clean
-rm -rf $RPM_BUILD_ROOT
 
 %files
-%defattr(-,root,root)
 %doc README AUTHORS COPYING TODO INSTALL doc/faq.html doc/tupdate.html
 %{_bindir}/examiner
 %{_bindir}/hvsctest
 %{_bindir}/tupdate
 
 %files -n %{name}-devel
-%defattr(-,root,root)
 %doc history/* doc/inside.html COPYING doc/thvs.txt
 %{_libdir}/*.a
 %{_includedir}/%{name}/*
