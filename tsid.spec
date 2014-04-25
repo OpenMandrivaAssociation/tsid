@@ -30,7 +30,7 @@ shows you something interesting...
 This is a developer package containing the static library and header files.
 
 %prep
-%setup -q
+%setup -qn %{name}2-0.3
 %patch -p1 -b .gcc4
 
 %build
