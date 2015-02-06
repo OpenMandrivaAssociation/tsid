@@ -1,7 +1,7 @@
 Summary: Time SID Manager
 Name:    tsid
 Version: 0.9
-Release: 10
+Release: 11
 License: GPLv2+
 URL: http://tsid.sourceforge.net
 Group: Sound
