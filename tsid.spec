@@ -3,7 +3,7 @@ Name:    tsid
 Version: 0.9
 Release: 11
 License: GPLv2+
-URL: http://tsid.sourceforge.net
+URL: https://tsid.sourceforge.net
 Group: Sound
 Source: http://prdownloads.sourceforge.net/tsid/%name-%version.tar.bz2
 Patch: tsid-0.9-gcc4.patch
