@@ -1,0 +1,48 @@
+diff -rupN tsid-1.0.old/src/pgr/examiner.cpp tsid-1.0/src/pgr/examiner.cpp
+--- tsid-1.0.old/src/pgr/examiner.cpp	2017-01-15 17:06:35.000000000 +0100
++++ tsid-1.0/src/pgr/examiner.cpp	2017-08-18 16:15:12.909658329 +0200
+@@ -42,6 +42,8 @@
+ #include <iomanip>
+ #include <string.h>
+ 
++using namespace std;
++
+ // paramenter field
+ const int P_NOTHING   = 0x000;  // nothing passed
+ const int P_UNSORTED  = 0x001;  // unsorted list
+diff -rupN tsid-1.0.old/src/pgr/hvsctest.cpp tsid-1.0/src/pgr/hvsctest.cpp
+--- tsid-1.0.old/src/pgr/hvsctest.cpp	2016-01-31 18:35:32.000000000 +0100
++++ tsid-1.0/src/pgr/hvsctest.cpp	2017-08-18 16:15:31.986102921 +0200
+@@ -35,6 +35,8 @@
+ #include <string.h>
+ #include <stdio.h>
+ 
++using namespace std;
++
+ int main(int argc, char** argv) {
+   std::cout << "HVSCTEST 1.00\n\n";
+   std::cout << "This program test if the HVSC_DIR variable enviroment points to a valid HVSC\n\n";
+diff -rupN tsid-1.0.old/src/pgr/sldb/MD5.cpp tsid-1.0/src/pgr/sldb/MD5.cpp
+--- tsid-1.0.old/src/pgr/sldb/MD5.cpp	2016-01-31 18:35:32.000000000 +0100
++++ tsid-1.0/src/pgr/sldb/MD5.cpp	2017-08-18 16:16:33.628307085 +0200
+@@ -44,7 +44,7 @@
+ 
+ #ifdef MD5_TEST
+ 
+-#include <iostream.h>
++#include <iostream>
+ #include <iomanip.h>
+ 
+ main()
+diff -rupN tsid-1.0.old/src/pgr/tupdate.cpp tsid-1.0/src/pgr/tupdate.cpp
+--- tsid-1.0.old/src/pgr/tupdate.cpp	2016-01-31 18:35:32.000000000 +0100
++++ tsid-1.0/src/pgr/tupdate.cpp	2017-08-18 16:18:46.190365127 +0200
+@@ -55,6 +55,8 @@
+   #include <dir.h>
+ #endif
+ 
++using namespace std;
++
+ #define strequ(s1, s2) (strcmp((s1),(s2)) == 0)
+ 
+ // show debug string if DEBUG is defined
