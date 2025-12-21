@@ -7,6 +7,11 @@ License:	GPLv2+
 Url:		http://tsid.sourceforge.net
 Source0:	http://prdownloads.sourceforge.net/tsid/%{name}-%{version}.tar.gz
 Patch0:	tsid-1.0-gcc4.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	sidplay-devel
 
 %description
